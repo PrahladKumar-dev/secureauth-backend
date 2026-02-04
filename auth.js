@@ -55,9 +55,12 @@ router.post("/login", async (req, res) => {
     );
 
     res.cookie("token", token, {
-      httpOnly: true,
-      sameSite: "strict"
-    });
+  httpOnly: true,
+  secure: true,       // production me true
+  sameSite: "None",   // cross-domain ke liye mandatory
+  path: "/"
+});
+
 
     res.json({
       message: "Login successful"
