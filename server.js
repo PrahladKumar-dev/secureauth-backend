@@ -13,12 +13,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://secureauth-frontend-2xf6.vercel.app"
-  ],
+  origin: true,
   credentials: true
 }));
+
 
 
 mongoose.connect(process.env.MONGO_URI)
