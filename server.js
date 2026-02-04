@@ -12,12 +12,15 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+
+
 app.use(cors({
-  origin: true,
-  credentials: true
+  origin: [
+    "http://localhost:5173",
+    "https://secureauth-frontend-2xf6.vercel.app"
+  ],
+  credentials: true,
 }));
-
-
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
